@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            <img src="Ivy1.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="header-details">
+                <h2>Ivy.ai</h2>
+                <p>Created by XENZA.ID</p>
+            </div>
+            <div class="header-icons">
+                <a href="https://wa.me/" target="_blank" class="icon-button">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        <div class="message-container"> <!--Pesan paling bawah adalah pesan teratas-->
+            <div class="message bot clickable" onclick="sendAuto()">I miss you so much~</div>
+            <div class="message bot">Hii, saya <b>Ivy</b>.<br> Saya siap menemani kamu dan menjawab pertanyaan kamu, tetapi jika kamu membutuhkan bantuan, silahkan tekan icon <b>WhatsApp</b> pada kanan atas halamn ini, teman saya Lyra siap membantu kamu dengan pertanyaan apapun, karena saya saat ini hanya bisa menjawab beberapa pertanyaan saja.😌</div>
+        </div>
+        <div class="message-input">
+            <input type="text" id="userMessage" placeholder="Message...">
+            <button class="send-button" onclick="sendMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2 .01 7z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
