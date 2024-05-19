@@ -1,8 +1,9 @@
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +12,7 @@ body {
 .chat-container {
     width: 100%;
     max-width: 500px;
-    height: 100vh;
+    height: 100%;
     background-color: #fff;
     border-radius: 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
@@ -80,7 +81,6 @@ body {
 .message-container {
     display: flex;
     flex-direction: column-reverse;
-    cursor: pointer;
     padding: 10px;
     overflow-y: auto;
     flex-grow: 1;
@@ -109,7 +109,7 @@ body {
     display: flex;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.564);
-    border-top: px solid rgba(255, 255, 255, 0.326);
+    border-top: 1px solid rgba(255, 255, 255, 0.326);
     flex-shrink: 0;
 }
 
