@@ -3,23 +3,51 @@ function addMessage(content, type, id = null) {
     
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}`;
-    messageDiv.textContent = content;
+   
     if (id) {
         messageDiv.id = id;
     }
-    messageContainer.prepend(messageDiv);
 
-    // Scroll to the bottom of the message container
-    messageContainer.scrollTop = messageContainer.scrollHeight;
+    if (type === 'bot') {
+        messageDiv.textContent = '';
+        messageContainer.prepend(messageDiv);
+        
+        // Scroll to the bottom of the message container
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+        
+        // Typing effect for bot messages
+        let index = 0;
+        function typeWriter() {
+            
+            if (index < content.length) {
+                messageDiv.textContent += content.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // Adjust typing speed here
+            }
+        }
+        typeWriter();
+    
+    } else {
+        
+        messageDiv.textContent = content;
+        messageContainer.prepend(messageDiv);
+        // Scroll to the bottom of the message container
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }
 }
 
 function sendAuto1() {
     addMessage('I miss you so much~', 'user');
-    addMessage('I miss you too, tetapi saya hanyalah sebuah AI yang di rancang oleh manusia, jika kamu merindukan seseorang silahkan katakan kepadanya :)', 'bot');
+    setTimeout(() => {
+        addMessage('I miss you too, tetapi saya hanyalah sebuah AI yang di rancang oleh manusia, jika kamu merindukan seseorang silahkan katakan kepadanya :)', 'bot');
+    }, 500); // Delay before bot message
 }
+
 function sendAuto2() {
     addMessage('Siapa kamu?', 'user');
-    addMessage('Saya adalah Ivy, saya diciptakan oleh ZAKI MUSHTHAFA BILLAH dan dikembangkan oleh team OpenAI XENZA.ID', 'bot');
+    setTimeout(() => {
+        addMessage('Saya adalah Ivy, saya diciptakan oleh ZAKI MUSHTHAFA BILLAH dan dikembangkan oleh team OpenAI XENZA.ID', 'bot');
+    }, 500); // Delay before bot message
 }
 
 function sendMessage() {
