@@ -13,9 +13,13 @@ function addMessage(content, type, id = null) {
     messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
-function sendAuto() {
+function sendAuto1() {
     addMessage('I miss you so much~', 'user');
     addMessage('I miss you too, tetapi saya hanyalah sebuah AI yang di rancang oleh manusia, jika kamu merindukan seseorang silahkan katakan kepadanya :)', 'bot');
+}
+function sendAuto2() {
+    addMessage('Siapa kamu?', 'user');
+    addMessage('Saya adalah Ivy, saya diciptakan oleh ZAKI MUSHTHAFA BILLAH dan dikembangkan oleh team OpenAI XENZA.ID', 'bot');
 }
 
 function sendMessage() {
@@ -31,6 +35,10 @@ function sendMessage() {
         // Library Bot response logic manual input user
         const userMessage = userInput.value.toLowerCase();
 
+        // Check if user is expressing sadness
+        const sadKeywords = ['sedih', 'galau', 'kecewa', 'sedihnya'];
+        const isSad = sadKeywords.some(keyword => userMessage.includes(keyword));
+
         // Remove the typing message and add the actual bot response after a delay
         setTimeout(() => {
             const typingMessage = document.getElementById(typingMessageId);
@@ -38,6 +46,7 @@ function sendMessage() {
                 typingMessage.remove();
             }
 
+            //LIBRARY UMUM
             if (userMessage === 'selamat pagi') {
                 addMessage('Selamat pagi juga', 'bot');
             
@@ -73,8 +82,8 @@ function sendMessage() {
             
             } else if (userMessage === 'apa makanan favoritmu?') {
                 addMessage('Saya tidak makan, karena saya adalah program komputer', 'bot');
-            
-            } else if (userMessage === 'siapa yang membuatmu?') {
+             
+            } else if (userMessage === 'siapa yang membuat mu?') {
                 addMessage('Saya dibuat oleh ZAKI MUSHTHAFA BILLAH dan di sempurnakan oleh team OpenAI pada XENZA.ID', 'bot');
             
             } else if (userMessage === 'apa tujuanmu?') {
@@ -118,7 +127,40 @@ function sendMessage() {
             
             } else if (userMessage === 'apakah kamu pernah tidur?') {
                 addMessage('Saya tidak tidur karena saya adalah program komputer dan selalu aktif', 'bot');
+            //AKHIR LIBRARY UMUM
+
+            //LIBRARY ILMU PENGETAHUAN DASAR
+            } else if (userMessage === 'bagaimana hukum gravitasi Newton bekerja?') {
+                addMessage('Hukum gravitasi Newton menjelaskan gaya tarik antara dua objek berdasarkan massa dan jarak di antara keduanya.', 'bot');
+
+            } else if (userMessage === 'bagaimana proses fotosintesis pada tumbuhan terjadi?') {
+                addMessage('Fotosintesis terjadi ketika tumbuhan menggunakan energi cahaya matahari, karbon dioksida, dan air untuk membuat glukosa dan menghasilkan oksigen.', 'bot');
             
+            } else if (userMessage === 'apa yang dimaksud dengan teori relativitas Albert Einstein?') {
+                addMessage('Teori relativitas Albert Einstein terdiri dari relativitas khusus, yang membahas gerakan relatif dalam ruang dan waktu, dan relativitas umum, yang menjelaskan gravitasi sebagai kelengkungan ruang-waktu.', 'bot');
+            
+            } else if (userMessage === 'bagaimana struktur DNA mempengaruhi pewarisan sifat?') {
+                addMessage('Struktur DNA yang berbentuk rangkaian panjang ganda membawa informasi genetik yang diturunkan dari orang tua ke keturunan.', 'bot');
+            
+            } else if (userMessage === 'apa perbedaan antara hewan herbivora, karnivora, dan omnivora?') {
+                addMessage('Hewan herbivora memakan tumbuhan, karnivora memakan daging, sedangkan omnivora dapat memakan tumbuhan dan daging.', 'bot');
+            
+            } else if (userMessage === 'apa yang dimaksud dengan perubahan iklim?') {
+                addMessage('Perubahan iklim merujuk pada perubahan pola cuaca yang signifikan di seluruh planet dalam jangka waktu yang panjang, biasanya disebabkan oleh aktivitas manusia.', 'bot');
+            
+            } else if (userMessage === 'bagaimana cara kerja jantung manusia?') {
+                addMessage('Jantung manusia memompa darah ke seluruh tubuh melalui sistem pembuluh darah untuk memasok oksigen dan nutrisi yang dibutuhkan oleh sel-sel tubuh.', 'bot');
+            
+            } else if (userMessage === 'apa yang dimaksud dengan perang dingin?') {
+                addMessage('Perang Dingin adalah konflik politik dan militer antara Blok Barat (terutama Amerika Serikat dan sekutunya) dan Blok Timur (Uni Soviet dan sekutunya) setelah Perang Dunia II.', 'bot');
+            
+            } else if (userMessage === 'bagaimana proses terjadinya gerhana matahari?') {
+                addMessage('Gerhana matahari terjadi ketika bulan berada di antara matahari dan bumi sehingga menutupi sebagian atau seluruh cahaya matahari.', 'bot');
+            
+            } else if (userMessage === 'apa yang dimaksud dengan sistem kekebalan tubuh?') {
+                addMessage('Sistem kekebalan tubuh adalah sistem kompleks yang melindungi tubuh dari infeksi dan penyakit dengan mendeteksi dan merespons organisme asing dan bahan berbahaya.', 'bot');
+            //AKHIR LIBRARY ILMU PENGETAHUAN DASAR
+
             } else if (userMessage.includes('cuaca') || userMessage.includes('suhu')) {
                 // Get user's location using browser geolocation
                 navigator.geolocation.getCurrentPosition(position => {
@@ -137,6 +179,6 @@ function sendMessage() {
             }
 
             userInput.value = '';
-        }, 1000); // 1 second delay before bot sends the actual response
+        }, 1000); // 1 second delay before ai sends the actual response
     }
 }
