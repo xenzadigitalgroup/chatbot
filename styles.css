@@ -9,7 +9,6 @@ html, body {
     align-items: center;
 }
 
-/* CSS untuk popup */
 .popup {
     position: fixed;
     z-index: 999;
