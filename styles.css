@@ -2,11 +2,55 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #f0f0f0;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* CSS untuk popup */
+.popup {
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(220, 211, 211, 0.816);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.popup.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup-content {
+    background: transparent; /* Transparan agar hanya gambar dan teks yang terlihat */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup-image {
+    max-width: 150px; /* Atur ukuran gambar sesuai keinginan */
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px; /* Jarak antara gambar dan teks */
+}
+
+.popup-text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(24, 23, 23);
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .chat-container {
@@ -21,14 +65,16 @@ html, body {
     overflow: hidden;
     background-image: url('Ivy2.jpg');
     background-size: cover;
+    overflow: hidden;
     background-position: center;
 }
 
 .header {
     display: flex;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-items: center;
     padding: 10px;
-    background-color: rgba(255, 0, 255, 0.626);
+    background-color: rgba(255, 0, 255, 0);
     color: #fff;
     flex-shrink: 0;
 }
@@ -81,28 +127,36 @@ html, body {
 .message-container {
     display: flex;
     flex-direction: column-reverse;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 10px;
     overflow-y: auto;
     flex-grow: 1;
     background-color: rgba(255, 255, 255, 0.326);
 }
 
+.message-container::-webkit-scrollbar {
+    display: none;
+}
+
 .message {
     padding: 10px;
-    border-radius: 10px;
     margin: 5px 0;
     max-width: 80%;
 }
 
 .message.bot {
-    background-color: rgba(255, 0, 238, 0.359);
+    background-color: rgba(255, 0, 238, 0.011);
     text-align: left;
+    border-radius: 10px 10px 10px 0px;
+    box-shadow: 1px 2px 4px 2px rgba(0, 0, 0, 0.5);
 }
 
 .message.user {
     background-color: rgba(200, 200, 200, 0.612);
     align-self: flex-end;
     text-align: right;
+    border-radius: 10px 10px 0px 10px;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .message-input {
@@ -118,7 +172,7 @@ html, body {
     border: 1px solid rgba(255, 255, 255, 0.326);
     background-color: rgba(255, 255, 255, 0.638);
     border-radius: 20px;
-    padding: 10px;
+    padding: 12px;
     outline: none;
 }
 
