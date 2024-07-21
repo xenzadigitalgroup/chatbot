@@ -22,7 +22,7 @@ function addMessage(content, type, id = null) {
             if (index < content.length) {
                 messageDiv.textContent += content.charAt(index);
                 index++;
-                setTimeout(typeWriter, 50); // Adjust typing speed here
+                setTimeout(typeWriter, 30); // Adjust typing speed here
             }
         }
         typeWriter();
@@ -36,6 +36,13 @@ function addMessage(content, type, id = null) {
     }
 }
 
+// Basic library pembelajaran gunakan Python
+// Input data pada library Pythone
+// Tingkat lanjut gunakan ChatGPT sebagai modelan tingkat lanjut
+// Letakkan ChatGPT API Key pada Backend
+// Gunakan API dari modelan OpenAI 4.0 
+
+
 function sendAuto1() {
     addMessage('I miss you so much~', 'user');
     setTimeout(() => {
@@ -47,6 +54,13 @@ function sendAuto2() {
     addMessage('Siapa kamu?', 'user');
     setTimeout(() => {
         addMessage('Saya adalah Ivy, saya diciptakan oleh ZAKI MUSHTHAFA BILLAH dan dikembangkan oleh team OpenAI XENZA.ID', 'bot');
+    }, 500); // Delay before bot message
+}
+
+function sendAuto3() {
+    addMessage('Versi berapa kamu saat ini?', 'user');
+    setTimeout(() => {
+        addMessage('Saat ini saya baru saja mencapai model v1.5, dan saya akan terus dikembangkan oleh team OpenAI XENZA.ID', 'bot');
     }, 500); // Delay before bot message
 }
 
@@ -98,9 +112,6 @@ function sendMessage() {
             
             } else if (userMessage === 'siapa namamu?') {
                 addMessage('Nama saya Ivy', 'bot');
-            
-            } else if (userMessage === 'berapa umurmu?') {
-                addMessage('Saya tidak memiliki umur seperti manusia', 'bot');
             
             } else if (userMessage === 'apa hobimu?') {
                 addMessage('Saya tidak punya hobi seperti manusia, tetapi saya suka membantu menjawab pertanyaan!', 'bot');
@@ -155,19 +166,44 @@ function sendMessage() {
             
             } else if (userMessage === 'apakah kamu pernah tidur?') {
                 addMessage('Saya tidak tidur karena saya adalah program komputer dan selalu aktif', 'bot');
+
+            } else if (userMessage === 'apa hal yang bisa kamu lakukan?') {
+                addMessage('Sebagai AI saya tidak melakukan suatu hal, tetapi saya dapat membantu mu dalam beberapa hal.', 'bot');
+            
+            } else if (userMessage === 'berapa umurmu?') {
+                addMessage('Saya hanya AI yang diciptakan oleh team OpenAI XENZA.ID, saya tidak memiliki umur seperti manusia, tetapi saya diciptakan pada tahun 2024.', 'bot');
+            
+            } else if (userMessage === 'apa bahasa pemograman kamu?') {
+                addMessage('Pada dasarnya saya menggunakan bahasa pemograman Pyhton, dan juga bahasa lainnya untuk menyempurnakan tampilan halaman saya ini.', 'bot');
+            
+            } else if (userMessage === 'bisakah kamu mendiagnosa sebuah penyakit?') {
+                addMessage('Saya tidak dapat mendiagnosa penyakit, sebaiknya tanyakan kepada seorang dokter atau kepada ahlinya.', 'bot');
+            
+            } else if (userMessage === 'apakah kamu makan?') {
+                addMessage('Sebagai AI saya tidak makan seperti manusia', 'bot');
+            
+            } else if (userMessage === 'bisakah kamu buatkan saya sebuah database?') {
+                addMessage('Tentu, database seperti apa yang kamu inginkan?', 'bot');
+
+            } else if (userMessage === 'terimakasih') {
+                addMessage('Sama-sama, jika kamu memiliki pertanyaan, saya siap membantu kamu mencari jawabannya, semoga harimu menyenangkan', 'bot');
+            
+            } else if (userMessage === 'apasaja pengetahuan yang kamu ketahui?') {
+                addMessage('Saat ini saya belum memiliki banyak pengetahuan, data saya akan terus di tambahkan pada memory saya dan akan terus dilatih oleh team OpenAI XENZA.ID', 'bot');
+            
             //AKHIR LIBRARY UMUM
 
             //LIBRARY ILMU PENGETAHUAN DASAR
-            } else if (userMessage === 'bagaimana hukum gravitasi Newton bekerja?') {
+            } else if (userMessage === 'bagaimana hukum gravitasi newton bekerja?') {
                 addMessage('Hukum gravitasi Newton menjelaskan gaya tarik antara dua objek berdasarkan massa dan jarak di antara keduanya.', 'bot');
-
+           
             } else if (userMessage === 'bagaimana proses fotosintesis pada tumbuhan terjadi?') {
                 addMessage('Fotosintesis terjadi ketika tumbuhan menggunakan energi cahaya matahari, karbon dioksida, dan air untuk membuat glukosa dan menghasilkan oksigen.', 'bot');
             
-            } else if (userMessage === 'apa yang dimaksud dengan teori relativitas Albert Einstein?') {
+            } else if (userMessage === 'apa yang dimaksud dengan teori relativitas albert einstein?') {
                 addMessage('Teori relativitas Albert Einstein terdiri dari relativitas khusus, yang membahas gerakan relatif dalam ruang dan waktu, dan relativitas umum, yang menjelaskan gravitasi sebagai kelengkungan ruang-waktu.', 'bot');
             
-            } else if (userMessage === 'bagaimana struktur DNA mempengaruhi pewarisan sifat?') {
+            } else if (userMessage === 'bagaimana struktur dna mempengaruhi pewarisan sifat?') {
                 addMessage('Struktur DNA yang berbentuk rangkaian panjang ganda membawa informasi genetik yang diturunkan dari orang tua ke keturunan.', 'bot');
             
             } else if (userMessage === 'apa perbedaan antara hewan herbivora, karnivora, dan omnivora?') {
@@ -187,26 +223,22 @@ function sendMessage() {
             
             } else if (userMessage === 'apa yang dimaksud dengan sistem kekebalan tubuh?') {
                 addMessage('Sistem kekebalan tubuh adalah sistem kompleks yang melindungi tubuh dari infeksi dan penyakit dengan mendeteksi dan merespons organisme asing dan bahan berbahaya.', 'bot');
+            
             //AKHIR LIBRARY ILMU PENGETAHUAN DASAR
-
-            } else if (userMessage.includes('cuaca') || userMessage.includes('suhu')) {
-                // Get user's location using browser geolocation
-                navigator.geolocation.getCurrentPosition(position => {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-                    const location = `(${latitude}, ${longitude})`; // This is just a placeholder, you can use reverse geocoding to get the actual location
-                    const weather = 'Cerah'; // This is just a placeholder, you can replace it with actual weather data from a static source or hardcoded values based on location
-                    const temperature = '25'; // This is just a placeholder, you can replace it with actual temperature data from a static source or hardcoded values based on location
-                    addMessage(`Cuaca saat ini di ${location} adalah ${weather} dengan suhu ${temperature}°C`, 'bot');
-                }, error => {
-                    console.error('Error getting user location:', error);
-                    addMessage('Maaf, tidak bisa mendapatkan lokasi pengguna.', 'bot');
-                });
             } else {
-                addMessage('Saya tidak mengerti pesan itu.', 'bot');
+                addMessage('Saya tidak mengerti pesan yang kamu berikan.', 'bot');
             }
 
             userInput.value = '';
-        }, 1000); // 1 second delay before ai sends the actual response
+        }, 2000); // 1 second delay before ai sends the actual response
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var popup = document.getElementById('welcomePopup');
+    popup.classList.remove('hidden');
+
+    setTimeout(function () {
+        popup.classList.add('hidden');
+    }, 1500); // Popup akan menghilang setelah 3 detik
+});
